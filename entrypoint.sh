@@ -11,4 +11,4 @@ find "${SOURCE_DIR}" -type f \( -iname \*.crt -o -iname \*.cer -o -iname \*.pem 
     "${JAVA_HOME}/bin/keytool" -import -trustcacerts -keystore "${TARGET}" -storepass changeit -noprompt -alias "$(basename "${CERT%.*}")" -file "${CERT}"
 done
 
-"${JAVA_HOME}/bin/keytool" -v -list -keystore "${TARGET}" -storepass changeit
+"${JAVA_HOME}/bin/keytool" -list -keystore "${TARGET}" -storepass changeit

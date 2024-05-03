@@ -2,8 +2,8 @@ name: Build java-trust-store-builder
 
 on:
   push:
-    paths:
-      - '*/**'
+    branches:
+      - 'main'
   schedule:
     - cron: 0 0 * * 1
   workflow_dispatch: { }
