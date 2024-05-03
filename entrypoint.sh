@@ -10,3 +10,5 @@ find ./ -type f \( -iname \*.jpg -o -iname \*.png \)
 find "${SOURCE_DIR}" -type f \( -iname \*.crt -o -iname \*.cer -o -iname \*.pem \) -print0 | while read -d $'\0' CERT; do
     "${JAVA_HOME}/bin/keytool" -import -trustcacerts -keystore "${TARGET}" -storepass changeit -noprompt -alias "$(basename "${CERT%.*}")" -file "${CERT}"
 done
+
+"${JAVA_HOME}/bin/keytool" -v -list -keystore "${TARGET}" -storepass changeit
